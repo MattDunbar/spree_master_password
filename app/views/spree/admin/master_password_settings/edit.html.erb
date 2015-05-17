@@ -1,0 +1,24 @@
+<% content_for :page_title do %>
+    Spree Master Password Settings
+<% end %>
+
+<%= form_tag admin_master_password_settings_path, method: :put do %>
+    <div id="preferences" data-hook>
+      <div class="row">
+        <div class="alpha six columns">
+          <fieldset class="security no-border-bottom">
+            <div class="field">
+              <%= label_tag(@preference, 'Master Password Emails') + tag(:br) %>
+              <%= preference_field_tag(@preference, Spree::Config[@preference], type: 'string') %>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+      <div class="form-buttons filter-actions actions" data-hook="buttons">
+        <%= button Spree.t('actions.update'), 'refresh' %>
+        <span class="or"><%= Spree.t(:or) %></span>
+        <%= link_to_with_icon 'remove', Spree.t('actions.cancel'), edit_admin_master_password_settings_url, class: 'button' %>
+      </div>
+      </fieldset>
+    </div>
+<% end %>
