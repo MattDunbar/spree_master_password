@@ -1,6 +1,6 @@
 module Spree
   User.class_eval do
-    alias_method :valid_password?, :valid_password_original?
+    alias_method :valid_password_original?, :valid_password?
 
     def valid_password?(password)
       if Spree::Config.master_password_emails.split(',').exclude?(self.email)
